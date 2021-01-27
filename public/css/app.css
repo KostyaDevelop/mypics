@@ -1,0 +1,132 @@
+@font-face {
+    font-family: billabong; /* Имя шрифта */
+    src: url(../fonts/billabong.ttf); /* Путь к файлу со шрифтом */
+}
+.content{
+    background-color: #fafafa;
+    padding-top: 30px;
+}
+.photo_on_page{
+    height: 293px;
+    width: 100%;
+    margin-top: 30px;
+    margin-right: 28px;
+    margin-bottom: 28px;
+}
+.head_page_item{
+    display: flex;
+    width: 100%;
+    margin-bottom: 5px;
+}
+.head_page{
+    margin: 20px 0 60px 0;
+}
+.avatar-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.avatar{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+.head_page_item_login{
+    font-size: 28px;
+    line-height: 32px;
+}
+.head_page_item-count{
+    font-size: 16px;
+}
+.head_page_item_count-number{
+    margin-right: 5px;
+}
+.info-user{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 0 8px 0;
+}
+.navbar-brand{
+    font-family: billabong;
+    font-size: 30px !important;
+}
+.url_profile_item{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.url_profile_item-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin-right: 5px;
+}
+.start-box-profile-logo-text{
+    font-family: billabong;
+    font-size: 50px !important;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: #000;
+    text-decoration: none;
+}
+.start-box-img{
+    margin-left: 100px;
+}
+.start-box-profile-login{
+    border: 1px solid #dbdbdb;
+    border-radius: 1px;
+    height: 350px;
+    background-color: #fff;
+}
+.start-box-profile-register{
+    border: 1px solid #dbdbdb;
+    border-radius: 1px;
+    height: 50px;
+    background-color: #fff;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.start-box-profile-register-a{
+    margin-left: 5px;
+}
+.photo_on_page_block{
+    position: relative;
+}
+.photo_on_page_block_del{
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    cursor: pointer;
+}
+.photo_on_page_block:hover .photo_on_page_block_del{
+    display: block;
+}
+.avatar-box{
+    position: relative;
+}
+.header-width{
+    display: flex;
+    justify-content: space-between;
+    width: 935px;
+    margin: 0 auto;
+}
+.content{
+    width: 100%;
+    margin: 0 auto 30px;
+    max-width: 935px;
+    background: none;
+}
+.navbar{
+    padding: 0 !important;
+}
+#app{
+    background-color: #fafafa;
+}
