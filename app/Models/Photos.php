@@ -13,4 +13,15 @@ class Photos extends Model
         'id_user',
         'photo'
     ];
+
+    protected function getPhotos(int $id) : object
+    {
+        $photos= self::where('id_user', $id)->get();
+        return $photos;
+    }
+    protected function getPhotoId(string $photoPath)
+    {
+        $photoID = self::where('photo', $photoPath)->pluck('id_photo');
+        return $photoID[0];
+    }
 }

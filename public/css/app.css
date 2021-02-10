@@ -41,6 +41,7 @@
 }
 .head_page_item_count-number{
     margin-right: 5px;
+    margin-left: 5px;
 }
 .info-user{
     display: flex;
@@ -129,4 +130,110 @@
 }
 #app{
     background-color: #fafafa;
+}
+.avatar-modal {
+    position: absolute;
+    display: none;
+    background-color: rgba(0,0,0,.65);
+    z-index: 999;
+    width: 100%;
+    height: 170%;
+}
+.avatar-modal-box{
+    width: 400px;
+    left: 50%;
+    top: 50%;
+    -ms-transform: translate(-50%,-50%);
+    -moz-transform:translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    background: #fff;
+    padding: 10px;
+    border-radius: 12px;
+    position: fixed;
+}
+.avatar-box img{
+    cursor: pointer;
+}
+.avatar-modal-box div{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    cursor: pointer;
+}
+.avatar-modal-box div:active{
+    background-color: rgba(0,0,0,.1);
+}
+.avatar-modal-title{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    padding: 15px;
+}
+.avatar-modal-upload form{
+    color: #0095f6;
+    font-weight: 700;
+    font-size: 14px;
+}
+.avatar-modal-delete form{
+    color: #ed4956;
+    font-weight: 700;
+    font-size: 14px;
+}
+.avatar-modal-cancel{
+    font-size: 14px;
+}
+.modal-photo-container{
+    background: #0c88b4;
+}
+.modal-photo-container-photo{
+    width: 600px;
+    height: 600px;
+}
+/*.modal-content-comments_and_edit{*/
+    /*width: 370px;*/
+    /*height: 600px;*/
+/*}*/
+.modal-dialog-photo{
+    max-width: 1000px !important;
+    height: 600px !important;
+}
+.modal-content-photo{
+    height: 600px !important;
+}
+.modal-content-comments_and_edit-name_user{
+    border-bottom: 1px solid #efefef;
+    display: flex;
+    justify-content: space-between;
+}
+.modal-content_photo-comments_and_edit-name_user-container-photo{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    height: 72px;
+    padding: 16px;
+}
+.modal-content_photo-comments_and_edit-name_user-photo{
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+}
+.modal-content-comments_and_edit-name_edit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+}
+.hidden{
+    display: none;
+}
+.modal-content-comments{
+    padding: 20px;
+}
+.modal-content-comments_and_edit-comments{
+    padding: 20px;
+}
+.head_page_item-count{
+    margin-left: 5px;
 }

@@ -11,11 +11,6 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'id',
         'name',
@@ -24,22 +19,34 @@ class User extends Authenticatable
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected function getLogin(int $id) : string
+    {
+        $login = self::where('id', $id)
+            ->first()
+            ->login;
+        return $login;
+    }
+    protected function getEmail(int $id) : string
+    {
+        $email = self::where('id', $id)
+            ->first()
+            ->email;
+        return $email;
+    }
+    protected function getName(int $id) : string
+    {
+        $name = self::where('id', $id)
+            ->first()
+            ->name;
+        return $name;
+    }
 }

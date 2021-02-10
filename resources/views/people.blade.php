@@ -26,7 +26,7 @@
                     <span class="head_page_item head_page_item_login">{{$login}}</span>
                 </div>
                 <div class="row-2 info-user">
-                    <span class="head_page_item head_page_ite   m-count">
+                    <span class="head_page_item head_page_item-count">
                         <b  class="head_page_item_count-number">{{count($photo_array)}}</b>
                         публикаций
                     </span>
@@ -62,7 +62,7 @@
     <div class="content">
         <div class="row">
             @foreach($photo_array as $photo_single)
-                @if(!empty($photo_single))
+                @if($photo_single['photo_path'])
                     <div class="col-lg-4 col-md-4 col-sm-4">
                         <div class="photo_on_page_block">
                             <div class="photo_on_page_block_del">
@@ -93,6 +93,8 @@
                                     </button>
                                 </form>
                             </div>
+{{--                            {{var_dump($photo_single['photo_id'])}}--}}
+                            <div class="id-photo hidden">{{$photo_single['photo_id'] ?? ''}}</div>
                             <img class="photo_on_page" src="{{$photo_single['photo_path'] ?? ''}} ">
                         </div>
                     </div>
@@ -103,4 +105,84 @@
         </div>
     </div>
 @endsection('content')
+<div class="avatar-modal">
+    <div class="avatar-modal-box">
+        <div class="avatar-modal-title">
+            Сменить фото профиля
+        </div>
+        <hr>
+        <div class="avatar-modal-upload">
+            <form action="{{route("add_avatar", $id)}}" method="post">
+                @csrf
+                <button type="submit"> Загрузить фото</button>
+            </form>
+        </div>
+        <hr>
+        @if(!empty($avatar))
+            <div class="avatar-modal-delete">
+                <form class="form-delete-avatar" method="post" >
+                    @csrf
+                    <a onclick="document.getElementsByClassName('form-delete-avatar').submit();" href="{{route('delete_avatar', ['id' => $id, 'avatar_name' => $avatarCutPath])}}">Удалить текущее фото</a>
+{{--                <form action="{{route('delete_avatar', ['id' => $id, 'avatar_name' => $avatarCutPath])}}" method="post">--}}
+{{--                    @csrf--}}
+{{--                    <button type="submit">Удалить текущее фото</button>--}}
+{{--                </form>--}}
+                </form>
+            </div>
+        @endif
+        <hr>
+        <div class="avatar-modal-cancel">
+            Отмена
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <img class=" " src="">
 
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-photo-container" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-photo" role="document">
+        <div class="modal-content modal-content-photo">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="modal-content-container">
+                        <img class="modal-photo-container-photo" src="">
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="modal-content-comments_and_edit">
+                        <div class="modal-content-comments_and_edit-name_user">
+                            <div class="modal-content_photo-comments_and_edit-name_user-container-photo">
+                                <img class="modal-content_photo-comments_and_edit-name_user-photo" src="">
+                                <span class="modal-content_photo-comments_and_edit-name_user-login"></span>
+                            </div>
+                            <div class="modal-content-comments_and_edit-name_edit">
+                                <svg aria-label="Дополнительно" class="_8-yf5 " fill="#262626" height="16" viewBox="0 0 48 48" width="16">
+                                    <circle clip-rule="evenodd" cx="8" cy="24" fill-rule="evenodd" r="4.5"></circle>
+                                    <circle clip-rule="evenodd" cx="24" cy="24" fill-rule="evenodd" r="4.5"></circle>
+                                    <circle clip-rule="evenodd" cx="40" cy="24" fill-rule="evenodd" r="4.5"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-content-comments">
+                    @foreach($photo_single['photo_comment'] as $photoComment)
+                        {{$photoComment ?? ''}}
+                        <br>
+                    @endforeach
+                    </div>
+                    <form class="modal-content-comments_and_edit-comments" action="{{route("take_comment", $id)}}" method="post">
+                        <input class="id-photo-modal hidden" type="hidden"  name="id-photo" value="">
+                        <input type="text"  name="comment" placeholder="Добавьте комментарий...">
+                        {{csrf_field()}}
+                        <button type="submit">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
